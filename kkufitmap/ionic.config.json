@@ -1,0 +1,7 @@
+{
+  "name": "kkufitmap",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
