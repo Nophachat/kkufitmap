@@ -1,2 +1,7 @@
-/* For information on how to create your own theme, please refer to:
-http://ionicframework.com/docs/theming/ */
+.ion-tab-bar {
+    color: #cc1717;
+}
+
+.ion-tab-button {
+    font-size: 11px;
+}
