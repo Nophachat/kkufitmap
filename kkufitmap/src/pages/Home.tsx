@@ -5,7 +5,7 @@ const Home: React.FC = () => {
     <IonPage >
       <IonContent fullscreen>
         <IonTitle className='ion-tab-bar'>
-        Home Page
+          Home Page
         </IonTitle>
       </IonContent>
     </IonPage>
