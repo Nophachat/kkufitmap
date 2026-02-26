@@ -59,12 +59,14 @@ const App: React.FC = () => (
 
         {/* หน้าจอ */}
         <IonRouterOutlet>
+          <Route exact path="/">
+        <Redirect to="/home" />
+        </Route>
           <Route exact path="/home" component={Home} />
           <Route exact path="/map" component={Map} />
           <Route exact path="/saved" component={Saved} />
           <Route exact path="/activity" component={Activity} />
           <Route exact path="/profile" component={Profile} />
-          <Redirect exact from="/" to="/home" />
         </IonRouterOutlet>
 
         {/* แท็บล่าง */}
