@@ -1,99 +1,109 @@
-/* src/pages/Profile.css */
-
-/* ส่วน Header สีเขียว */
-.profile-toolbar {
-  --background: #00da4a; /* สีเขียวสว่างตามรูป */
-  --color: white;
-}
-
-.profile-title {
-  font-weight: bold;
-  font-size: 1.5rem;
-}
-
-/* ส่วนรูปโปรไฟล์ */
-.profile-section {
+/* =========================================
+   Profile Page Styles
+   ========================================= */
+.profile-header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  margin-bottom: 30px;
 }
 
-.avatar-container {
-  width: 100px;
-  height: 100px;
+.profile-avatar {
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
-  border: 3px solid #00da4a; /* ขอบสีเขียว */
-  padding: 3px;
-  margin-bottom: 10px;
+  background-color: #334155;
+  border: 4px solid #10b981;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  color: white;
 }
 
-.avatar-image {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
+.profile-name {
+  font-size: 20px;
+  font-weight: 800;
+  color: #1e293b;
+  margin: 0 0 4px 0;
 }
 
-.user-name {
-  margin: 5px 0 0;
-  font-weight: bold;
-  color: #333;
-}
-
-.user-role {
-  margin: 0;
-  color: #00da4a;
+.profile-role {
+  font-size: 14px;
   font-weight: 600;
+  color: #10b981;
+  margin: 0;
 }
 
-/* ส่วนสถิติ (Stats) */
-.stats-card {
+/* กล่องสถิติ (Stats Grid) */
+.profile-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.profile-stat-box {
   background: white;
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  padding: 15px 5px;
-  text-align: center;
-  margin: 5px;
-}
-
-.stat-number {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #333;
-  display: block;
-}
-
-.stat-label {
-  font-size: 0.7rem;
-  color: #888;
-  text-transform: uppercase;
-  margin-top: 5px;
-  display: block;
+  border-radius: 20px;
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
 }
 
 .stat-icon {
-  font-size: 1.5rem;
-  color: #00da4a;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 
-/* ส่วนเมนูรายการ */
-.menu-list {
-  margin-top: 20px;
-  background: transparent;
+.stat-number {
+  font-size: 24px;
+  font-weight: 800;
+  color: #1e293b;
+  margin: 0 0 4px 0;
 }
 
-.menu-item {
-  --padding-start: 20px;
-  --inner-padding-end: 20px;
-  margin-bottom: 10px;
-  border-radius: 12px;
-  --background: white;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+.stat-label-small {
+  font-size: 10px;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.menu-icon {
-  margin-right: 15px;
+/* เมนูตัวเลือก (Menu List) */
+.profile-menu-list {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
 }
+
+.profile-menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  border-bottom: 1px solid #f1f5f9;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.profile-menu-item:active {
+  background-color: #f8fafc;
+}
+
+.profile-menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-item-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #334155;
+}
+

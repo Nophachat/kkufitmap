@@ -1,0 +1,291 @@
+/* =========================================
+   KKU FitMap - Home.css (Full Unified & Debugged Version)
+   ========================================= */
+
+/* --- โครงสร้างพื้นฐาน --- */
+.app-container {
+  background-color: #F8FAFC;
+  min-height: 100vh;
+  padding-bottom: 80px;
+  font-family: 'Prompt', sans-serif; 
+}
+
+/* --- Header & Search --- */
+.soft-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #10b981;
+  margin: -20px -20px 15px -20px; 
+  padding: 10px 20px 15px 20px; 
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto 8px auto;
+}
+
+.header-top h1 {
+  font-size: 22px;
+  font-weight: 800;
+  color: white;
+  margin: 0;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 18px 12px 48px; 
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+/* --- Cards & Grid --- */
+.interactive-card {
+  border-radius: 28px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+  background: white;
+}
+
+.interactive-card:hover { transform: translateY(-6px); }
+
+.places-grid {
+  display: grid;
+  grid-template-columns: 1fr; 
+  gap: 20px;
+  padding: 0 24px;
+}
+
+@media (min-width: 768px) { .places-grid { grid-template-columns: repeat(2, 1fr); } }
+
+/* =========================================
+   Welcome Page Styles
+   ========================================= */
+.welcome-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+.welcome-image-section {
+  flex: 1;
+  background-image: url('https://images.unsplash.com/photo-1571008887538-b36bb32f4571?auto=format&fit=crop&q=80&w=800');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+
+.welcome-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+}
+
+.welcome-content {
+  padding: 40px 24px 60px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.welcome-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #1e293b;
+  margin-bottom: 12px;
+}
+
+.action-buttons-group {
+  width: 100%;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.btn-primary {
+  background-color: #00d261;
+  color: white;
+  border: none;
+  border-radius: 16px;
+  padding: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-outline {
+  background-color: white;
+  color: #1e293b;
+  border: 2px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* =========================================
+   Modern Form Modal (The Fix)
+   ========================================= */
+/* แก้ไขปัญหา Modal ไม่ขึ้นด้วยการกำหนด z-index และการจัดวาง */
+.modern-form-modal {
+  --z-index: 20000;
+  --height: auto;
+  --border-radius: 28px;
+  align-items: center; /* จัดให้อยู่กลางหน้าจอ */
+}
+
+.modern-form-modal::part(content) {
+  --width: 90%;
+  --max-width: 420px;
+  --height: auto;
+  border-radius: 28px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+}
+
+.modal-form-header {
+  position: relative;
+  padding: 40px 24px 10px;
+  text-align: center;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: #f1f5f9;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.modal-title-modern {
+  font-size: 26px;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.modal-form-body {
+  padding: 20px 24px 40px;
+}
+
+.form-input-group {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.input-field-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+}
+
+.custom-input-modern {
+  width: 100%;
+  background-color: #f8f9fa;
+  border: 2px solid #f1f5f9;
+  border-radius: 16px;
+  padding: 16px 16px 16px 48px;
+  font-size: 15px;
+  font-family: 'Prompt', sans-serif;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.custom-input-modern:focus {
+  border-color: #10b981;
+  background-color: white;
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+}
+
+.save-activity-btn-modern {
+  width: 100%;
+  background: linear-gradient(135deg, #10b981 0%, #00d261 100%);
+  color: white;
+  border: none;
+  border-radius: 16px;
+  padding: 18px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: 'Prompt', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+  box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+}
+
+.modal-form-footer-text {
+  text-align: center;
+  margin-top: 25px;
+  font-size: 14px;
+  color: #64748b;
+}
+
+.switch-form-link {
+  color: #10b981;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* =========================================
+   Activity & Stats Styles (Keep Existing)
+   ========================================= */
+.stat-summary-card {
+  background: white;
+  border-radius: 24px;
+  padding: 24px 20px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+}
+
+.stat-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 4px solid #10b981;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

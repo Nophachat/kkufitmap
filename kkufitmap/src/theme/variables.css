@@ -1,7 +1,36 @@
 .ion-tab-bar {
     color: #cc1717;
+    --color-selected: #10b981
 }
 
 .ion-tab-button {
     font-size: 11px;
+}
+:root {
+  --ion-font-family: 'Prompt', sans-serif !important;
+}
+
+/* 2. บังคับให้ข้อความทั่วไป (h1, p, div) ใช้ฟอนต์นี้ด้วย */
+* {
+  font-family: 'Prompt', sans-serif;
+}
+/* 1. เปลี่ยนสีไอคอนและข้อความของเมนูที่ถูกกดเลือก ให้เป็นสีเขียว */
+ion-tab-bar {
+  --color-selected: #10b981 !important; 
+}
+
+/* 2. เปลี่ยนสีไอคอนและข้อความตอนเอาเมาส์ไปชี้ (Hover) */
+ion-tab-button:hover {
+  --color: #10b981 !important; 
+}
+
+/* 3. ลบสีพื้นหลัง (กล่องสี่เหลี่ยมที่ค้างอยู่) ออก ให้เป็นสีใส (ทะลุเห็นพื้นหลังสีขาว) */
+ion-tab-button.tab-selected::part(native),
+ion-tab-button:hover::part(native) {
+  background-color: transparent !important;
+}
+
+/* 4. เปลี่ยนสีเอฟเฟกต์ตอนกดคลิก (คลื่นวงกลม) ให้เป็นสีเขียว */
+ion-tab-button {
+  --ripple-color: #10b981 !important;
 }

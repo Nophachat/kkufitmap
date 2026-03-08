@@ -14,16 +14,6 @@ import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
 
-/**
- * Ionic Dark Mode
- * -----------------------------------------------------
- * For more info, please see:
- * https://ionicframework.com/docs/theming/dark-mode
- */
-
-/* import '@ionic/react/css/palettes/dark.always.css'; */
-/* import '@ionic/react/css/palettes/dark.class.css'; */
-
 import {
   IonApp,
   IonTabs,
@@ -45,72 +35,77 @@ import {
   personOutline
 } from 'ionicons/icons';
 
+// Import หน้าทั้งหมด
+import Welcome from './pages/Welcome';
 import Home from './pages/Home';
 import Map from './pages/Map';
 import Saved from './pages/Saved';
 import Activity from './pages/Activity';
 import Profile from './pages/Profile';
 import "./theme/variables.css";
+
 setupIonicReact();
+
+// 🌟 1. แยกส่วนของ Tabs ออกมาเป็น Component ต่างหาก
+const MainTabs: React.FC = () => {
+  return (
+    <IonTabs>
+      <IonRouterOutlet>
+        <Route exact path="/home" component={Home} />
+        <Route exact path="/map" component={Map} />
+        <Route exact path="/saved" component={Saved} />
+        <Route exact path="/activity" component={Activity} />
+        <Route exact path="/profile" component={Profile} />
+      </IonRouterOutlet>
+
+      <IonTabBar slot="bottom">
+        <IonTabButton tab="home" href="/home">
+          <IonIcon icon={homeOutline} />
+          <IonLabel>HOME</IonLabel>
+        </IonTabButton>
+
+        <IonTabButton tab="map" href="/map">
+          <IonIcon icon={mapOutline} />
+          <IonLabel>MAP</IonLabel>
+        </IonTabButton>
+
+        <IonTabButton tab="saved" href="/saved">
+          <IonIcon icon={bookmarkOutline} />
+          <IonLabel>SAVED</IonLabel>
+        </IonTabButton>
+
+        <IonTabButton tab="activity" href="/activity">
+          <IonIcon icon={pulseOutline} />
+          <IonLabel>Activity</IonLabel>
+        </IonTabButton>
+
+        <IonTabButton tab="profile" href="/profile">
+          <IonIcon icon={personOutline} />
+          <IonLabel>PROFILE</IonLabel>
+        </IonTabButton>
+      </IonTabBar>
+    </IonTabs>
+  );
+};
+
+// 🌟 2. ตัวควบคุมหน้าจอหลักของแอป
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
-      <IonTabs>
+      <IonRouterOutlet>
+        
+        {/* หน้า Welcome (จะไม่มีแถบเมนูด้านล่างเพราะไม่ได้อยู่ใน MainTabs) */}
+        <Route exact path="/welcome" component={Welcome} />
 
-        {/* หน้าจอ */}
-        <IonRouterOutlet>
-          <Route exact path="/home" component={Home} />
-          <Route exact path="/map" component={Map} />
-          <Route exact path="/saved" component={Saved} />
-          <Route exact path="/activity" component={Activity} />
-          <Route exact path="/profile" component={Profile} />
-          <Redirect exact from="/" to="/home" />
-        </IonRouterOutlet>
+        {/* หน้าอื่นๆ ทั้งหมดที่มีแถบเมนูด้านล่าง ให้วิ่งไปใช้ MainTabs */}
+        <Route path={["/home", "/map", "/saved", "/activity", "/profile"]} component={MainTabs} />
 
-        {/* แท็บล่าง */}
-        <IonTabBar slot="bottom">
-          <IonTabButton tab="home" href="/home">
-            <IonIcon icon={homeOutline} />
-            <IonLabel>HOME</IonLabel>
-          </IonTabButton>
+        {/* เมื่อเปิดแอปมาครั้งแรก ให้เด้งไปหน้า /welcome ทันที */}
+        <Redirect exact from="/" to="/welcome" />
 
-          <IonTabButton tab="map" href="/map">
-            <IonIcon icon={mapOutline} />
-            <IonLabel>MAP</IonLabel>
-          </IonTabButton>
-
-          <IonTabButton tab="saved" href="/saved">
-            <IonIcon icon={bookmarkOutline} />
-            <IonLabel>SAVED</IonLabel>
-          </IonTabButton>
-
-          <IonTabButton tab="activity" href="/activity">
-            <IonIcon icon={pulseOutline} />
-            <IonLabel>Activity</IonLabel>
-          </IonTabButton>
-
-          <IonTabButton tab="profile" href="/profile">
-            <IonIcon icon={personOutline} />
-            <IonLabel>PROFILE</IonLabel>
-          </IonTabButton>
-        </IonTabBar>
-
-      </IonTabs>
+      </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>
 );
 
 export default App;
-
-
-
-
-
-
-
-
-setupIonicReact();
-
-
-
-

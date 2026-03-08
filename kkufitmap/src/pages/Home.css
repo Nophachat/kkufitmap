@@ -1,0 +1,877 @@
+/* =========================================
+   KKU FitMap - Home.css (Final & Clean Version)
+   ========================================= */
+
+/* --- โครงสร้างพื้นฐาน --- */
+.app-container {
+  background-color: #F8FAFC;
+  min-height: 100vh;
+  padding-bottom: 80px;
+  font-family: 'Prompt', sans-serif; 
+}
+
+/* --- Header --- */
+.soft-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #10b981;
+  margin: -20px -20px 15px -20px; 
+  padding: 10px 20px 15px 20px; 
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px; 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header-top h1 {
+  font-size: 22px;
+  font-weight: 800;
+  color: white;
+  margin: 0;
+}
+
+.weather-badge {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  padding: 4px 12px;
+  border-radius: 20px;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* --- ช่องค้นหา --- */
+.search-container {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 18px 12px 48px; 
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.search-input:focus {
+  box-shadow: 0 15px 35px rgba(0, 210, 97, 0.2);
+  transform: translateY(-2px); 
+}
+
+.search-icon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94A3B8;
+  transition: color 0.3s ease;
+}
+
+.search-input:focus + .search-icon {
+  color: #00D261; 
+}
+
+/* --- พื้นที่เนื้อหาหลัก --- */
+.main-content {
+  padding: 0 24px;
+  margin-top: 20px; 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- การ์ด --- */
+.interactive-card {
+  border-radius: 28px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.interactive-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+.interactive-card:active {
+  transform: scale(0.96);
+}
+
+/* --- การ์ดสภาพอากาศ --- */
+.weather-card {
+  background: linear-gradient(135deg, #4F46E5, #3B82F6);
+  padding: 24px 28px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.temp-display {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+/* --- ปุ่มหมวดหมู่ --- */
+.category-filter {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-width: none;
+}
+.category-filter::-webkit-scrollbar { display: none; }
+
+.filter-btn {
+  white-space: nowrap;
+  padding: 12px 24px;
+  border-radius: 30px;
+  border: none;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: white;
+  color: #64748B;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+}
+
+.filter-btn:hover {
+  background: #F1F5F9;
+  transform: translateY(-2px);
+}
+
+.filter-btn.active {
+  background: #00D261;
+  color: white;
+  box-shadow: 0 8px 20px rgba(0, 210, 97, 0.3);
+}
+
+/* --- Grid จัดระเบียบการ์ด --- */
+.places-grid {
+  display: grid;
+  grid-template-columns: 1fr; 
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .places-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .places-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* --- ตกแต่งการ์ดสถานที่ --- */
+.place-card { background: white; overflow: hidden; }
+.place-image-placeholder {
+  height: 180px;
+  background: linear-gradient(135deg, #E2E8F0, #CBD5E1);
+  padding: 16px;
+}
+.rating-badge {
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(4px);
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #334155;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+.place-details { padding: 20px; }
+
+/* ปุ่มหัวใจบนการ์ด */
+.like-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  z-index: 10;
+  transition: transform 0.2s ease;
+}
+
+.like-btn:active {
+  transform: scale(0.8);
+}
+
+/* =========================================
+   การจัดการข้อความและหมุดสถานที่ (แก้ปัญหาหมุดแหว่ง)
+   ========================================= */
+.address-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #64748B;
+  font-size: 13px;
+  width: 100%;
+  overflow: hidden; /* ป้องกันไม่ให้เนื้อหาไหลออกนอกกรอบ */
+}
+
+.address-icon {
+  flex: 0 0 auto; /* ไม่อนุญาตให้ย่อหรือขยาย */
+  width: 14px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.address-text {
+  flex: 1 1 auto; /* อนุญาตให้ขยายเต็มที่ แต่ย่อได้ */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+/* =========================================
+   สไตล์สำหรับป๊อปอัป (Modal) สถานที่
+   ========================================= */
+.place-detail-modal {
+  --width: 90%;
+  --max-width: 450px;
+  --height: 85vh;
+  --border-radius: 24px;
+  --box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+}
+
+.place-detail-modal::part(content) {
+  border-radius: 24px;
+  overflow: hidden; 
+}
+
+.custom-modal-content {
+  --background: #ffffff;
+}
+
+.custom-modal-content::part(scroll) {
+  scrollbar-width: none;
+}
+.custom-modal-content::part(scroll)::-webkit-scrollbar {
+  display: none;
+}
+
+.modal-hero-section {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  background-color: #f1f5f9;
+}
+
+.modal-hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0 0 24px 24px;
+}
+
+.modal-floating-actions {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 12px;
+  z-index: 100;
+}
+
+.circle-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.circle-btn:active {
+  transform: scale(0.9);
+}
+
+.modal-body-padded {
+  padding: 24px;
+}
+
+.category-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 12px;
+}
+
+.modal-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 4px 0;
+}
+
+.modal-subtitle {
+  font-size: 14px;
+  color: #64748b;
+  margin: 0 0 16px 0;
+}
+
+.modal-stats-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.rating-pill-green {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background-color: #dcfce7;
+  color: #16a34a;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.popularity-text {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.quick-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.info-box {
+  background-color: #f8fafc;
+  padding: 16px;
+  border-radius: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.info-text-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-label {
+  margin: 0 0 4px 0;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.info-value {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.modal-section {
+  margin-bottom: 24px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 12px 0;
+}
+
+.section-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #475569;
+  margin: 0;
+}
+
+.amenities-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.amenity-tag {
+  background-color: #f0fdf4;
+  color: #16a34a;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.bottom-action-bar {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.action-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #f8fafc;
+  border: none;
+  border-radius: 16px;
+  padding: 16px 0;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.action-btn:active {
+  background-color: #e2e8f0;
+}
+
+.action-btn span {
+  font-size: 12px;
+  font-weight: 600;
+  color: #475569;
+}
+
+/* =========================================
+   Activity Page Styles (หน้าสถิติและบันทึกกิจกรรม)
+   ========================================= */
+.activity-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.activity-page-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #1e293b;
+  margin: 0;
+}
+
+.add-activity-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #dcfce7; 
+  color: #16a34a; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(22, 163, 74, 0.15);
+  transition: all 0.2s;
+}
+
+.add-activity-btn:active {
+  transform: scale(0.9);
+}
+
+.stat-summary-card {
+  background: white;
+  border-radius: 24px;
+  padding: 24px 20px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+  margin-bottom: 30px;
+}
+
+.stat-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.stat-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 10%;
+  height: 80%;
+  width: 1px;
+  background-color: #e2e8f0;
+}
+
+.stat-icon-wrapper {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.stat-value {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 4px 0;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.stat-unit {
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.history-section-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #1e293b;
+  margin-bottom: 15px;
+}
+
+.history-card {
+  background: white;
+  border-radius: 20px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.history-card:active {
+  transform: scale(0.98);
+}
+
+.history-icon-bg {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.history-dot {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  background-color: #10b981;
+  border: 2px solid white;
+  border-radius: 50%;
+}
+
+.history-details {
+  flex: 1;
+}
+
+.history-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 4px 0;
+}
+
+.history-date {
+  font-size: 13px;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.history-duration-badge {
+  background-color: #dcfce7;
+  color: #16a34a;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* =========================================
+   Modal บันทึกกิจกรรม (Add Activity Modal)
+   ========================================= */
+.activity-modal {
+  --border-radius: 30px; 
+}
+
+.modal-form-container {
+  padding: 24px;
+  background-color: #f8fafc;
+  min-height: 100%;
+}
+
+.modal-header-simple {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.modal-close-btn {
+  position: absolute;
+  left: 0;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #334155;
+  cursor: pointer;
+}
+
+.modal-title-simple {
+  font-size: 18px;
+  font-weight: 800;
+  color: #1e293b;
+  margin: 0;
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-label {
+  display: block;
+  font-size: 15px;
+  font-weight: 800;
+  color: #1e293b;
+  margin-bottom: 12px;
+}
+
+.activity-type-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.type-btn {
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.type-btn.active {
+  border-color: #10b981;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
+}
+
+.type-btn.active .type-icon-circle {
+  background-color: #10b981;
+  color: white;
+}
+
+.type-icon-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #f1f5f9;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.type-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.active-dot {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 8px;
+  height: 8px;
+  background-color: #10b981;
+  border-radius: 50%;
+}
+
+.custom-input {
+  width: 100%;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 15px;
+  font-family: 'Prompt', sans-serif;
+  color: #1e293b;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.custom-input:focus {
+  border-color: #10b981;
+}
+
+.duration-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.duration-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.duration-input-wrapper .custom-input {
+  padding-right: 40px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.duration-unit {
+  position: absolute;
+  right: 20px !important;
+  font-size: 14px;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.save-activity-btn {
+  width: 100%;
+  background-color: #00d261;
+  color: white;
+  border: none;
+  border-radius: 16px;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: 'Prompt', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 30px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 210, 97, 0.3);
+  transition: transform 0.2s;
+}
+
+.save-activity-btn:active {
+  transform: scale(0.95);
+}
+
+.delete-activity-btn {
+  width: 100%;
+  background-color: #fee2e2;
+  color: #ef4444;
+  border: none;
+  border-radius: 16px;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: 'Prompt', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.delete-activity-btn:active {
+  transform: scale(0.95);
+}
+
+/* ซ่อนลูกศรขึ้น/ลง ในช่อง input number */
+.duration-input-wrapper input[type="number"]::-webkit-inner-spin-button,
+.duration-input-wrapper input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.duration-input-wrapper input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* =========================================
+   เปลี่ยน Scrollbar หลักของแอปให้บางและสวยขึ้น 
+   ========================================= */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
